@@ -12,15 +12,7 @@ describe('Transações', () => {
 
     it('Cadastrar uma entrada', () => {
         criarTransacao("Freela", 250)
-
         cy.get("tbody tr td.description").should("have.text", "Freela")
-        
-        cy.contains("Nova Transação").click()
-        cy.get('#description').type(descricao)
-        cy.get('#amount').type(valor).should('be.greaterThan', 0)
-        cy.get('#date').type("2024-11-07") // yyyy-mm-dd
-    
-        cy.contains('button', 'Salvar').click()
     })
 
     it('Cadastrar uma saída', () => {
